@@ -11,17 +11,19 @@ class PostsTableSeeeder extends Seeder
      */
     public function run()
     {
-        // if (DB::table('posts')->get()->count() == 0) {
+        if (DB::table('posts')->get()->count() == 0) {
         	DB::table('posts')->insert([
         		[
         			'id' => 1,
         			'title' => 'First post',
-        			'description' => 'First description',
+                    'description' => 'First description',
+                    'content' => 'First Content',
+                    'category_id' => 1,
         			'status' => 1
         		]
         	]);
-        // } else {
-        // 	echo "Table Posts is not empty!";
-        // }
+        } else {
+        	echo "Table Posts is not empty!";
+        }
     }
 }
