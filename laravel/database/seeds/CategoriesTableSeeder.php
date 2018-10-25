@@ -11,13 +11,13 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        // if (DB::table('categories')->get()->count() == 0) {
-        	DB::insert([
+        if (DB::table('categories')->get()->count() == 0) {
+        	DB::table('categories')->insert([
         		'id' => 1,
         		'name' => 'First Category'
         	]);
-        // } else {
-        // 	echo "Table Categories is not empty!";
-        // }
+        } else {
+        	echo "Table Categories is not empty!";
+        }
     }
 }

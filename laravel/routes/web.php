@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+// List post
+Route::get('/posts', 'PostController@index');
+// Them post, do chua co view nen de kieu get
+Route::get('/posts/store', 'PostController@store');
+Route::get('posts/update', 'PostController@update');
+Route::get('posts/delete', 'PostController@delete');

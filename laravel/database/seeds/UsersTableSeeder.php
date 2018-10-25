@@ -11,15 +11,15 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        // if (DB::table('users')->get()->count() == 0) {
-        	DB::insert([
+        if (DB::table('users')->get()->count() == 0) {
+        	DB::table('users')->insert([
         		'id' => 1,
         		'username' => '1804laravel',
         		'password' => Hash::make('123456'),
         		'status' => 1
         	]);
-        // } else {
-        	// echo "Table Users is not empty!";
-        // }
+        } else {
+        	echo "Table Users is not empty!";
+        }
     }
 }
