@@ -31,4 +31,12 @@ Route::group(['prefix' => 'post_builder'], function() {
 // Gop nhung route lien quan den admin
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 	Route::get('/', 'AdminController@index');
+
+	Route::group(['prefix' => 'cate'], function () {
+		Route::get('/', 'CategoryController@index')->name('admin.cate.index');
+		Route::get('add', 'CategoryController@add')->name('admin.cate.add');
+		Route::get('edit/{id}', 'CategoryController@edit')->name('admin.cate.edit');
+		Route::post('store', 'CategoryController@store')->name('admin.cate.store');
+		Route::get('delete/{id}', 'CategoryController@delete')->name('admin.cate.delete');
+	});
 });
