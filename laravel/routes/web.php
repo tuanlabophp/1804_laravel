@@ -15,8 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 // List post
-Route::get('/posts', 'PostController@index');
+Route::get('posts', 'PostController@index');
 // Them post, do chua co view nen de kieu get
-Route::get('/posts/store', 'PostController@store');
+Route::get('posts/store', 'PostController@store');
 Route::get('posts/update', 'PostController@update');
 Route::get('posts/delete', 'PostController@delete');
+
+// Gop nhung route co duong dan bat dau bang post_builder
+Route::group(['prefix' => 'post_builder'], function() {
+	Route::get('/', 'PostController@index_builder');
+	Route::get('store', 'PostController@store_builder');
+	Route::get('update', 'PostController@update_builder');
+	Route::get('delete/{id}', 'PostController@delete_builder');
+});
+// Gop nhung route lien quan den admin
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+	Route::get('/', 'AdminController@index');
+});

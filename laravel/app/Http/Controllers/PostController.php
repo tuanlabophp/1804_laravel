@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+// Khi can su dung querybuilder
+use DB;
 
 class PostController extends Controller
 {
+    // ELOQUENT
     public function index() {
     	// Eloquent all() : Lay tat ca cac ban ghi trong bang
     	// $posts = Post::all()->toJson();
@@ -73,5 +76,50 @@ class PostController extends Controller
     	Post::destroy(3);
 
     	return Post::all();
+    }
+
+    //QUERYBUILDER
+    public function index_builder()
+    {
+        $posts = DB::table('posts')->get();
+        return $posts;
+    }
+
+    public function store_builder()
+    {
+        DB::table('posts')->insert([
+            'title' => 'New Post Builder',
+            'description' => 'desc builder',
+            'status' => '1'
+        ]);
+
+        return $this->index_builder();
+    }
+
+    public function update_builder() {
+        DB::table('posts')
+            ->where('id', 2)
+            ->update([
+                'title' => 'Update by querybuilder'
+            ]);
+
+        return $this->index_builder();
+    }
+
+    public function delete_builder($id) {
+        // Kiem tra su ton tai trong db
+        $post = DB::table('posts')
+            ->where('id', $id)
+            ->get()->toArray();
+        // Neu co thi xoa con khong thi bao not found
+        if (count($post)) {
+            DB::table('posts')
+            ->delete($id);
+
+            return $this->index_builder();
+        } else {
+            echo "Not found!";
+        }
+
     }
 }
