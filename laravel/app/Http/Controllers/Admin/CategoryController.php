@@ -29,9 +29,25 @@ class CategoryController extends Controller
         return $this->index();
     }
 
-    public function edit()
+    public function edit($id)
     {
-    	return view('admin.category.edit');
+        $category = DB::table('categories')->find($id);
+        return view('admin.category.edit', ['category' => $category]);
+    }
+
+    public function update(Request $request)
+    {
+        $id = $request['cate-id'];
+        $name = $request['cate-name'];
+
+        $category = DB::table('categories')->find($id);
+        if ($category) {
+            DB::table('categories')
+                ->where('id', $id)
+                ->update(['name' => $name]);
+        }
+
+        return $this->index();
     }
 
     public function delete($id)
@@ -39,7 +55,7 @@ class CategoryController extends Controller
         $category = DB::table('categories')->where('id', $id)->get()->toArray();
         if (count($category)) {
             DB::table('categories')->delete($id);
-        } 
+        }
 
         return $this->index();
     }
