@@ -299,14 +299,14 @@
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-dashboard"></i> <span>Category</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+            <li class="active"><a href="{{route('admin.cate.index')}}"><i class="fa fa-circle-o"></i> List Category</a></li>
+            <li><a href="{{route('admin.cate.add')}}"><i class="fa fa-circle-o"></i> Add Category</a></li>
           </ul>
         </li>
       </ul>
@@ -315,27 +315,9 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
+    <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Dashboard
-        <small>Control panel</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <!-- Small boxes (Stat box) -->
-      
-      <!-- /.row (main row) -->
-
-    </section>
-    <!-- /.content -->
+    @yield('dashboard-content')
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
