@@ -39,6 +39,9 @@
                   	<a href="{{route('admin.cate.delete', ['id' => $category->id])}}">
                   		<button class="btn btn-warning">DELETE</button>
                   	</a>
+                  	<a href="{{route('admin.cate.edit', ['id' => $category->id])}}">
+                  		<button class="btn btn-success">UPDATE</button>
+                  	</a>
                   </td>
               	</tr>
               	@endforeach

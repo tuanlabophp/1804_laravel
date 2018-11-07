@@ -11,7 +11,8 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="" method="post">
+    <form action="{{route('admin.login.check')}}" method="post">
+      {{csrf_field()}}
       <div class="form-group has-feedback">
         <input name="username" class="form-control" placeholder="Username">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
