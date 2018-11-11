@@ -17,6 +17,8 @@ class PostsTableSeeeder extends Seeder
         			'id' => 1,
         			'title' => 'First post',
         			'description' => 'First description',
+                    'content' => 'First Content',
+                    'category_id' => 1,
         			'status' => 1
         		]
         	]);

@@ -297,7 +297,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
+        <li class=" treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Category</span>
             <span class="pull-right-container">
@@ -305,8 +305,19 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="{{route('admin.cate.index')}}"><i class="fa fa-circle-o"></i> List Category</a></li>
+            <li class=""><a href="{{route('admin.cate.index')}}"><i class="fa fa-circle-o"></i> List Category</a></li>
             <li><a href="{{route('admin.cate.add')}}"><i class="fa fa-circle-o"></i> Add Category</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Post</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class=""><a href="{{route('admin.post.index')}}"><i class="fa fa-circle-o"></i> List Post</a></li>
           </ul>
         </li>
       </ul>
@@ -523,3 +534,6 @@
   <div class="control-sidebar-bg"></div>
 </div>
 @endsection
+<!-- @section('script')
+  @yield('content-script')
+@endsection -->

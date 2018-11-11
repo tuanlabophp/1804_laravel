@@ -12,4 +12,9 @@ class Category extends Model
     	'id',
     	'name'
     ];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
