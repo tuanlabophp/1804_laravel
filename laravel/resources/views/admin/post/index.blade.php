@@ -48,7 +48,10 @@
                   <td>{{$post->status}}</td>
                   <td>
                   	<a href="{{route('admin.post.delete', ['id' => $post->id])}}">
-                  		<button class="btn btn-warning">DELETE</button>
+                      <button class="btn btn-warning">DELETE</button>
+                    </a>
+                    <a href="{{route('admin.post.edit', ['id' => $post->id])}}">
+                  		<button class="btn btn-success">UPDATE</button>
                   	</a>
                   	
                   </td>
@@ -70,14 +73,18 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Post</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
 
-            <form>
+            <form 
+              action="{{route('admin.post.store')}}"
+              method="post"
+            >
+              {{@csrf_field()}}
               <div class="form-group">
                 <label for="inputTitle">Title</label>
                 <input name="title" class="form-control" id="inputTitle" aria-describedby="emailHelp" placeholder="Title">

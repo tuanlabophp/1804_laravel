@@ -44,8 +44,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 	Route::group(['prefix' => 'post', 'middleware' => 'auth'], function() {
 		Route::get('/', 'PostController@index')->name('admin.post.index');
 		Route::post('store', 'PostController@store')->name('admin.post.store');
+		Route::get('edit/{id}', 'PostController@edit')->name('admin.post.edit');
 		Route::post('update', 'PostController@update')->name('admin.post.update');
-		Route::get('delete', 'PostController@delete')->name('admin.post.delete');
+		Route::get('delete/{id}', 'PostController@delete')->name('admin.post.delete');
 	});
 
 	Route::get('login', 'LoginController@index')->name('admin.login.index');
